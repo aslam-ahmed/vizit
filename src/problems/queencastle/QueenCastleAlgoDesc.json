@@ -1,0 +1,15 @@
+{
+  "algo": [
+    "let Q be a queue",
+    "label start as explored",
+    "Q.enqueue(start)",
+    "while Q is not empty do",
+    "\tv := Q.dequeue()",
+    "\tfor all edges from v to w in G.adjacentEdges(v) do",
+    "\t\tif w is the end then",
+    "\t\t\treturn w",
+    "\t\tif w is not labeled as explored then",
+    "\t\t\tlabel w as explored",
+    "\t\t\tQ.enqueue(w)"
+  ]
+}

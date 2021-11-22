@@ -1,0 +1,110 @@
+rect {
+  stroke: #acaaaa;
+}
+.unvisited {
+  fill: whitesmoke;
+  background-color: whitesmoke;
+}
+
+.obstacle {
+  fill: #4c4c6d;
+  background-color: #4c4c6d;
+}
+
+.visited {
+  fill: #f58840;
+  background-color: #f58840;
+}
+
+.cost {
+  fill: darkslategrey;
+  background-color: darkslategrey;
+}
+
+.path {
+  fill: #f8485e;
+  background-color: #f8485e;
+}
+
+.start {
+  fill: #52734d;
+  background-image: url("/static/img/start.svg");
+  background-color: #52734d;
+}
+
+.end {
+  fill: #2f86a6;
+  background-color: #2f86a6;
+  background-image: url("/static/img/target.svg");
+}
+
+.edge,
+.edgelegend {
+  fill: gray;
+  background-color: gray;
+}
+
+.dequeued {
+  fill: #39a388;
+  background-color: #39a388;
+}
+.currentlegend,
+.current {
+  fill: #ce1212;
+  background-color: #ce1212;
+}
+
+.algoActive {
+  background-color: greenyellow;
+}
+
+.algoDesc {
+  color: gray;
+  font-style: italic;
+}
+
+.small {
+  font: italic 13px sans-serif;
+}
+
+.parent {
+  width: 100%;
+}
+
+.child {
+  width: 45%;
+  float: left;
+}
+
+.control {
+  @apply bg-green-600 text-white rounded hover:bg-green-500 disabled:bg-gray-500;
+  background-repeat: no-repeat;
+  background-position: right;
+}
+
+.play {
+  @apply control w-32;
+  background-image: url("/static/img/play.svg");
+}
+
+.stop {
+  @apply control w-32;
+  background-image: url("/static/img/stop.svg");
+}
+
+.step {
+  @apply control w-28;
+  background-image: url("/static/img/step.svg");
+}
+
+.toolTip {
+  position: absolute;
+  display: none;
+  min-width: 20px;
+  height: 20px;
+  background: gray;
+  border: 1px solid black;
+  text-align: center;
+  color: white;
+  font-size: smaller;
+}

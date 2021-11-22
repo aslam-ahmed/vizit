@@ -1,0 +1,504 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+  <body>
+    <div class="flex flex-row">
+      <div class="w-1/2 ml-2">
+        <div class="border-b-2">
+          <div class="flex items-center">
+            <span class="w-full font-bold text-sm sm:text-lg">Settings</span>
+            <div id="open-info">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="
+                  h-6
+                  w-6
+                  text-green-600
+                  hover:text-green-400
+                  cursor-pointer
+                "
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </div>
+          </div>
+          <div class="flex my-2">
+            <label class="inline-block w-24 text-xs sm:text-base" for=""
+              >Grid Data</label
+            >
+            <textarea
+              class="
+                shadow
+                border border-gray-400
+                rounded
+                w-full
+                h-20
+                text-xs
+                sm:text-base
+              "
+              name="Test Data"
+              id="tdata"
+              placeholder="Enter data without spaces all new lines will be treated as rows. Enter 'X' for wall/block cells."
+            ></textarea>
+          </div>
+          <div class="flex my-2">
+            <label class="inline-block w-24 text-xs sm:text-base" for=""
+              >Start</label
+            >
+            <div class="flex justify-between w-full">
+              <input
+                class="
+                  shadow
+                  border border-gray-400
+                  rounded
+                  w-2/5
+                  text-xs
+                  sm:text-base
+                "
+                type="text"
+                name="Start"
+                id="start"
+                placeholder="2 values space separated e.g 16 8"
+              />
+              <label class="inline-block text-xs sm:text-base" for=""
+                >End</label
+              >
+              <input
+                class="
+                  shadow
+                  border
+                  rounded
+                  border-gray-400
+                  w-2/5
+                  text-xs
+                  sm:text-base
+                "
+                type="text"
+                name="End"
+                id="end"
+                placeholder="2 values space separated e.g 34 28"
+              />
+            </div>
+          </div>
+          <div class="flex items-center my-2">
+            <label class="w-24 text-xs sm:text-base" for="">Speed</label>
+            <input
+              type="range"
+              class="w-3/4"
+              id="speed"
+              name="speed"
+              min="0"
+              max="500"
+              value="250"
+            />
+            <input
+              type="button"
+              id="runBtn"
+              value="Run"
+              class="
+                w-1/4
+                ml-2
+                bg-green-600
+                text-white
+                rounded
+                hover:bg-green-500
+              "
+            />
+          </div>
+          <div class="flex items-center my-2">
+            <p id="error" class="text-xs text-red-600" style="display: none">
+              Please enter correct data in above fields. See placeholder hints
+              for input format.
+            </p>
+          </div>
+        </div>
+        <div class="border-b-2">
+          <div class="flex sm:flex-row my-2 justify-between gap-2 flex-wrap">
+            <span class="flex flex-col w-auto font-bold text-sm sm:text-lg">
+              Legends
+            </span>
+
+            <div class="flex flex-col items-center">
+              <div
+                class="
+                  w-4
+                  h-4
+                  md:w-8 md:h-8
+                  start
+                  rounded
+                  shadow
+                  border border-gray-300
+                "
+              ></div>
+              <span class="w-auto text-xs md:text-sm">Start</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div
+                class="
+                  w-4
+                  h-4
+                  md:w-8 md:h-8
+                  end
+                  rounded
+                  shadow
+                  border border-gray-300
+                "
+              ></div>
+              <span class="w-auto text-xs md:text-sm">End</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div
+                class="
+                  w-4
+                  h-4
+                  md:w-8 md:h-8
+                  unvisited
+                  rounded
+                  shadow
+                  border border-gray-300
+                "
+              ></div>
+              <span class="w-auto text-xs md:text-sm">Unvisited</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div
+                class="
+                  w-4
+                  h-4
+                  md:w-8 md:h-8
+                  currentlegend
+                  rounded
+                  shadow
+                  border border-gray-300
+                "
+              ></div>
+              <span class="w-auto text-xs md:text-sm">Current</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div
+                class="
+                  w-4
+                  h-4
+                  md:w-8 md:h-8
+                  edgelegend
+                  rounded
+                  shadow
+                  border border-gray-300
+                "
+              ></div>
+              <span class="w-auto text-xs md:text-sm">Edge</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div
+                class="
+                  w-4
+                  h-4
+                  md:w-8 md:h-8
+                  visited
+                  rounded
+                  shadow
+                  border border-gray-300
+                "
+              ></div>
+              <span class="w-auto text-xs md:text-sm">Visited</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div
+                class="
+                  w-4
+                  h-4
+                  md:w-8 md:h-8
+                  dequeued
+                  rounded
+                  shadow
+                  border border-gray-300
+                "
+              ></div>
+              <span class="w-auto text-xs md:text-sm">Dequeued</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div
+                class="
+                  w-4
+                  h-4
+                  md:w-8 md:h-8
+                  path
+                  rounded
+                  shadow
+                  border border-gray-300
+                "
+              ></div>
+              <span class="w-auto text-xs md:text-sm">Path</span>
+            </div>
+            <div class="flex flex-col items-center">
+              <div
+                class="
+                  w-4
+                  h-4
+                  md:w-8 md:h-8
+                  obstacle
+                  rounded
+                  shadow
+                  border border-gray-300
+                "
+              ></div>
+              <span class="w-auto text-xs md:text-sm">Wall</span>
+            </div>
+          </div>
+        </div>
+        <div class="border-b-2">
+          <div class="flex flex-row my-2 justify-between gap-2">
+            <span class="w-auto font-bold text-sm sm:text-lg">Presets</span>
+            <input
+              type="button"
+              value="Test 1"
+              class="
+                w-1/6
+                bg-green-600
+                text-white
+                rounded
+                hover:bg-green-500
+                test-data
+              "
+            />
+            <input
+              type="button"
+              value="Test 2"
+              class="
+                w-1/6
+                bg-green-600
+                text-white
+                rounded
+                hover:bg-green-500
+                test-data
+              "
+            />
+            <input
+              type="button"
+              value="Test 3"
+              class="
+                w-1/6
+                bg-green-600
+                text-white
+                rounded
+                hover:bg-green-500
+                test-data
+              "
+            />
+            <input
+              type="button"
+              value="Test 4"
+              class="
+                w-1/6
+                bg-green-600
+                text-white
+                rounded
+                hover:bg-green-500
+                test-data
+              "
+            />
+          </div>
+        </div>
+        <div class="border-b-2">
+          <div class="flex flex-row my-1">
+            <span class="w-auto font-bold text-sm sm:text-lg"> Algorithm </span>
+            <div class="flex justify-end items-center w-full gap-4">
+              <label class="text-xs sm:text-base" for="isDetailRun"
+                >Detail Run</label
+              >
+              <input
+                type="checkbox"
+                id="isDetailRun"
+                value="Detailed"
+                checked
+              />
+            </div>
+          </div>
+        </div>
+        <div class="flex flex-row my-2" id="algo"></div>
+        <div class="flex justify-center gap-4" id="controls">
+          <div class="flex w-3/4 justify-end gap-2">
+            <input type="button" value="Stop" id="play" class="play" disabled />
+            <input type="button" value="Step" id="step" class="step" disabled />
+          </div>
+          <div class="flex w-1/4 justify-end font-bold text-green-700">
+            <label for="">Result: &ThinSpace;</label>
+            <label for="" id="result"></label>
+          </div>
+        </div>
+      </div>
+      <div id="grid" class="w-1/2 ml-2 mt-2"></div>
+    </div>
+
+    <div
+      class="
+        fixed
+        hidden
+        inset-0
+        bg-gray-600 bg-opacity-50
+        overflow-y-auto
+        h-full
+        w-full
+      "
+      style="display: block"
+      id="info-modal"
+    >
+      <div
+        class="
+          relative
+          top-20
+          mx-auto
+          p-5
+          border
+          shadow-lg
+          rounded-md
+          bg-white
+          h-2/3
+          w-2/3
+          overflow-y-scroll
+        "
+      >
+        <div class="mt-3">
+          <h3 class="text-lg leading-6 font-medium text-gray-700">Welcome,</h3>
+          <div class="flex flex-col text-gray-500 gap-2 mt-3">
+            <div>
+              <p>
+                This is an interactive demostration of HackerRank problem
+                <a
+                  href="https://www.hackerrank.com/challenges/castle-on-the-grid"
+                  class="text-blue-600"
+                >
+                  Castle on the Grid</a
+                >.
+              </p>
+            </div>
+            <div>
+              <p>
+                The general approach is to use a graph based data structure
+                along with bread first search algorithm which is generally used
+                to find a path between point A to B. In order to find the
+                shortest path between point two points we have to introduce a
+                cost function, a more well known variant of which is Djikstra's
+                Algorithm, which is guarantee to give the shortest path.
+              </p>
+            </div>
+            <div>
+              <p>
+                The problem in question uses Djikstra's algorithm with a slight
+                variation in finding edges/neighbours which is the key insight
+                to it. It is also important to note that a Priority Queue is
+                more appropriate than a normal Queue, using Priority Queue will
+                lead towards faster computing time.
+              </p>
+            </div>
+            <div>
+              <p>
+                The problems asks to find the shortest amount of moves or turns
+                to reach the goal. This can be done by changing the way we get
+                neighbours, in standard Grid BFS neighbours are immediate
+                bottom, top, right and left cells. We change this approach to
+                include all cells to bottom, top, right and left directions
+                until a wall cell or end of grid is reached.
+              </p>
+            </div>
+            <div>
+              <p>The rest is standard Djikstra's Algoritm.</p>
+            </div>
+            <div>
+              <h3 class="text-lg leading-6 font-medium text-gray-700 mt-3">
+                Grid and Legends Information
+              </h3>
+            </div>
+            <div class="flex mt-3">
+              <div class="start w-5 h-5 mx-3 rounded"></div>
+              <span>
+                This is used as a starting cell to initiate the algorithm. The
+                very first to enqueue.</span
+              >
+            </div>
+            <div class="flex">
+              <div class="end w-5 h-5 mx-3 rounded"></div>
+              <span
+                >This is the end/goal for which shortest path is required.</span
+              >
+            </div>
+            <div class="flex">
+              <div class="unvisited w-5 h-5 mx-3 rounded shadow border"></div>
+              <span>Normal grid cells which are not yet explored.</span>
+            </div>
+            <div class="flex">
+              <div class="obstacle w-5 h-5 mx-3 rounded"></div>
+              <span
+                >Cells which blocks the path towards goal. These cells will
+                restrict neighbour/edge function.</span
+              >
+            </div>
+            <div class="flex">
+              <div class="currentlegend w-5 h-5 mx-3 rounded"></div>
+              <span
+                >The current dequeued cell for which the edges are being
+                explored.</span
+              >
+            </div>
+            <div class="flex">
+              <div class="edgelegend w-5 h-5 mx-3 rounded"></div>
+              <span
+                >The edge of currently dequeued cell. The edge will highlight
+                temporarily to get a visual insight.</span
+              >
+            </div>
+            <div class="flex">
+              <div class="visited w-5 h-5 mx-3 rounded"></div>
+              <span
+                >The explored edge, this cell will contain a number which
+                represents cost and a direction symbol.
+              </span>
+            </div>
+            <div class="flex">
+              <div class="dequeued w-5 h-5 mx-3 rounded"></div>
+              <span
+                >The cell for which all edges are explored and which will not be
+                enqueued further.</span
+              >
+            </div>
+            <div class="flex">
+              <div class="path w-5 h-5 mx-3 rounded"></div>
+              <span>The shortest path from start to end cell. </span>
+            </div>
+            <div>
+              <p>
+                See the Resources section for more information on key topics.
+              </p>
+            </div>
+          </div>
+          <div class="flex px-4 py-3 justify-end">
+            <button
+              id="info-modal-close"
+              class="
+                px-4
+                py-2
+                bg-green-500
+                text-white text-base
+                font-medium
+                rounded-md
+                w-24
+                shadow-sm
+                hover:bg-green-600
+              "
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/index.js" type="module"></script>
+  </body>
+</html>
